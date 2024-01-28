@@ -63,6 +63,7 @@ h6 {
 	font-weight: 600;
 }
 
+
 .small-text {
 	font-size: 14px;
 }
@@ -140,4 +141,44 @@ input{
 	outline: none;
 	border-radius:10px;
 	border:none;
+}
+
+
+/* css for the app page  */
+.app{
+	position: relative;
+}
+
+/* css for the notification component  */
+
+.notification-container{
+	position:absolute;
+	right:10px;
+	top:20px;
+	
+	color:white;
+	padding:7px 15px;
+	border-radius:10px;
+	transition:all 0.3s ease-in;
+	opacity:0;
+}
+.notification-container.success{
+	background:green;
+}
+.notification-container.warning{
+	background:orange;
+}
+.notification-container.error{
+	background:red;
+}
+.notification-container.show{
+	opacity:1;
+}
+.norification-container.hide{
+	opacity:0
+}
+.close-icon{
+	font-size: 20px;
+	margin-left:10px;
+	cursor: pointer;
 }
