@@ -5,12 +5,15 @@ import "../css/loginPage.css";
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 
-import { NotificationContext } from "../App";
+import { LoginContext, NotificationContext } from "../App";
 
 function LoginPage() {
 	const [loginDetails, setLoginDetails] = useState({ username: "", password: "" });
 	const [view, setView] = useState(false);
+
 	const  setNotificationDetails  = useContext(NotificationContext);
+	const {loginInfo,setLoginInfo} = useContext(LoginContext);
+
 
 	const navigate = useNavigate();
 
@@ -20,9 +23,11 @@ function LoginPage() {
 		try {
 			const res = await axios.post(`${process.env.REACT_APP_SERVERURL}/authentication/login`, loginDetails);
 
+			
 			if (res.status === 200) {
-				const { message, type } = res.data;
+				const { message, type} = res.data;
 				setNotificationDetails({ message, type, showNotification: true });
+				setLoginInfo({...loginInfo,isLogedIn:true})
 				navigate("/");
 			}
 		} catch (err) {
@@ -36,7 +41,7 @@ function LoginPage() {
 				}
 			} else {
 				navigate("/servererror");
-				setNotificationDetails({ message: "something went wrong", type: "error", showNotification: true });
+				setNotificationDetails({ message: "something  wrong", type: "error", showNotification: true });
 			}
 		}
 	}

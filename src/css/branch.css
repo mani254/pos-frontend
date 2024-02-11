@@ -1,0 +1,95 @@
+.details-wrap{
+    padding:0px 50px;
+    margin-top:25px;
+}
+
+.details-wrap form{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.details-wrap .input-wrapper{
+    width: 50%;
+    margin-top:30px;
+}
+.details-wrap label{
+    width: 50%;
+    margin:0px 0px 5px 5px;
+}
+
+.details-wrap  div:nth-child(even){
+    padding-left:50px;
+}
+
+.details-wrap  div:nth-child(odd){
+    padding-right:50px;
+}
+.details-wrap form  button{
+    margin-top:35px;
+}
+.details-wrap th, td{
+    border-bottom:.5px solid rgba(0, 0, 0, 0.292);
+    background:rgba(228, 233, 234, 0.403);
+}
+.details-wrap table{
+    margin-top:35px;
+    width: 100%;
+    border-collapse: collapse;
+    
+}
+
+.details-wrap table th{
+    padding:10px 8px;
+    background:var(--primary-color);
+    text-align: left;
+}
+.details-wrap table td{
+    padding:15px 8px;
+}
+
+/* css fo the active an inactive switch  */
+.details-wrap .toggle-switch {
+    position: relative;
+    display: block;
+    width: 40px;
+    height: 20px;
+    margin: 10px;
+  }
+
+  .details-wrap .toggle-switch .toggle-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 20px;
+    background-color: #e64b2c;
+    border-radius: 34px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+.details-wrap .toggle-switch .toggle-label::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    top: 0px;
+    left: 2px;
+    background-color: #fff;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+  }  
+.details-wrap .toggle-switch.active .toggle-label {
+  background-color: #4CAF50;
+}
+.details-wrap .toggle-switch.active .toggle-label::before {
+    transform: translateX(25px);
+}
+.details-wrap .icon{
+    font-size:25px;
+    margin:0px 5px;
+}
+.details-wrap .icon{
+    color:red !important;
+}

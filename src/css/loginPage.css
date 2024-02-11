@@ -4,6 +4,8 @@
     background-size:cover;
     background-position:bottom;
     background-repeat: no-repeat;
+}
+.login label{
     color:white;
 }
 .login-container{
