@@ -10,7 +10,7 @@ function Notification(props) {
 			{console.log("notification Page rendered")}
 			<div className="d-center">
 				<p>{message}</p>
-				<AiFillCloseCircle className="close-icon" onClick={() => props.data.setNotificationDetails({showNotification: false})} />
+				<AiFillCloseCircle className="close-icon"  onClick={() => props.data.setNotificationDetails({showNotification: false})} />
 			</div>
 		</div>
 	);

@@ -8,12 +8,11 @@ import { useNavigate } from "react-router-dom";
 import { LoginContext, NotificationContext } from "../App";
 
 function LoginPage() {
-	const [loginDetails, setLoginDetails] = useState({ username: "", password: "" });
+	const [loginDetails, setLoginDetails] = useState({ email: "", password: "" });
 	const [view, setView] = useState(false);
 
-	const  setNotificationDetails  = useContext(NotificationContext);
-	const {loginInfo,setLoginInfo} = useContext(LoginContext);
-
+	const setNotificationDetails = useContext(NotificationContext);
+	const { loginInfo, setLoginInfo } = useContext(LoginContext);
 
 	const navigate = useNavigate();
 
@@ -23,22 +22,16 @@ function LoginPage() {
 		try {
 			const res = await axios.post(`${process.env.REACT_APP_SERVERURL}/authentication/login`, loginDetails);
 
-			
 			if (res.status === 200) {
-				const { message, type} = res.data;
+				const { message, type } = res.data;
 				setNotificationDetails({ message, type, showNotification: true });
-				setLoginInfo({...loginInfo,isLogedIn:true})
+				setLoginInfo({ ...loginInfo, isLogedIn: true });
 				navigate("/");
 			}
 		} catch (err) {
 			if (err.response) {
 				const { message, type } = err.response.data;
-				const status = err.response.status;
 				setNotificationDetails({ message, type, showNotification: true });
-
-				if (err.response.status === 500) {
-					navigate("/servererror");
-				}
 			} else {
 				navigate("/servererror");
 				setNotificationDetails({ message: "something  wrong", type: "error", showNotification: true });
@@ -51,8 +44,8 @@ function LoginPage() {
 			<div className="login-container">
 				<form onSubmit={loginFunction}>
 					<div className="input-wrapper">
-						<label htmlFor="username"> Username:</label>
-						<input type="text" name="username" id="username" onChange={(e) => setLoginDetails({ ...loginDetails, username: e.target.value })}></input>
+						<label htmlFor="email"> Username:</label>
+						<input type="email" name="email" id="email" onChange={(e) => setLoginDetails({ ...loginDetails, email: e.target.value })}></input>
 					</div>
 					<div className="input-wrapper">
 						<label htmlFor="password"> password:</label>
